@@ -12,7 +12,5 @@ public interface UserService {
 
     User userLogin(LoginDto loginDto);
 
-    User getByUserId(Long id);
-
     User getByRole();
 }

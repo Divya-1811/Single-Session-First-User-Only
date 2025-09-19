@@ -13,7 +13,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,12 +41,6 @@ public class UserController {
         User user=userService.userLogin(loginDto);
         AuthResponse authResponse=authService.generateToken(user);
         return CommonUtil.getOkResponse("User login successfully",authResponse);
-    }
-
-    @GetMapping("/login/get/{userId}")
-    public ResponseEntity<ApiResponse> getByUserId(@PathVariable("userId") Long userId){
-        User user=userService.getByUserId(userId);
-        return CommonUtil.getOkResponse("Success",user);
     }
 
     @GetMapping("/login/get")

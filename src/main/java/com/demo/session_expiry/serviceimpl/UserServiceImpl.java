@@ -46,12 +46,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getByUserId(Long id) {
-        return userRepository.findById(id).
-                orElseThrow(()->new CustomException("User not found"));
-    }
-
-    @Override
     public User getByRole() {
         Long id= UserContextHolder.getUserDto().getId();
         return userRepository.findById(id).
